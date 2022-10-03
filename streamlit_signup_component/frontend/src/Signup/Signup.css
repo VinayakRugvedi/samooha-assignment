@@ -1,0 +1,23 @@
+.signup-container {
+  background-color: white;
+  border-radius: 2rem;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  padding: 4rem;
+}
+
+.signup-container .header-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.signup-container .header-container .logo-image {
+  width: 18rem;
+}
+
+.signup-container .header-container .title-text {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 2rem 0rem;
+}
