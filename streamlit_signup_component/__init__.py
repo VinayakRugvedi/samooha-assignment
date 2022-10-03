@@ -46,14 +46,13 @@ else:
 # `declare_component` and call it done. The wrapper allows us to customize
 # our component's API: we can pre-process its input args, post-process its
 # output value, and add a docstring for users.
-def signup_component(key=None):
+def signup_component(data, key=None):
     """Create a new instance of "signup_component".
 
     Parameters
     ----------
-    name: str
-        The name of the thing we're saying hello to. The component will display
-        the text "Hello, {name}!"
+    data: dictionary
+        The set of data items passed as arguments to the sign up component.
     key: str or None
         An optional key that uniquely identifies this component. If this is
         None, and the component's arguments are changed, the component will
@@ -73,7 +72,7 @@ def signup_component(key=None):
     #
     # "default" is a special argument that specifies the initial return
     # value of the component before the user has interacted with it.
-    component_value = _component_func(key=key, default=0)
+    component_value = _component_func(data=data, key=key, default=0)
 
     # We could modify the value returned from the component if we wanted.
     # There's no need to do this in our simple example - but it's an option.
@@ -84,14 +83,19 @@ def signup_component(key=None):
 # During development, we can run this just as we would any other Streamlit
 # app: `$ streamlit run my_component/__init__.py`
 if not _RELEASE:
-    import streamlit as st
+    # import streamlit as st
 
     # st.subheader("Component with constant args")
 
     # Create an instance of our component with a constant `name` arg, and
     # print its output value.
     # num_clicks = signup_component("World")
-    signup_component()
+    data = {
+        "title_text": "Sign up using Snowflake account",
+        "tos_link": "https://samooha.tech",
+        "privacy_link": "https://samooha.tech"
+    }
+    signup_component(data)
     # st.markdown("You've clicked %s times!" % int(num_clicks))
 
     # st.markdown("---")
