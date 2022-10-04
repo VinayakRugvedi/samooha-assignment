@@ -1,4 +1,4 @@
-import React, {ReactNode, useState} from "react";
+import React, {useState} from "react";
 
 import Form from "./Form"
 
@@ -7,7 +7,7 @@ interface PropTypes {
   privacy_link: string;
 }
 
-const FormNameTypes = {
+export const FormNameTypes = {
   AccountLocator: "accountLocator",
   Username: "username",
   Password: "password"

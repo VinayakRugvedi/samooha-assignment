@@ -1,9 +1,11 @@
-import React, {ReactNode} from "react";
+import React from "react";
 
 import {
   Button,
-  InputText
+  InputText,
+  InputPassword
 } from "components"
+import {FormNameTypes} from "./Form.container"
 import "./Form.css"
 
 interface PropTypes {
@@ -29,17 +31,31 @@ const Form = ({
       isButtonDisabled = true
     }
 
-    formInputsContent.push(
-      <div className="input-wrapper">
-        <InputText
-          placeHolder={data.placeHolder}
-          value={data.value}
-          errorString={data.errorString}
-          handleChange={(value: string) => handleUpdate(name, value)}
-          style={{width: "25rem"}}
-        />
-      </div>
-    )
+    if (FormNameTypes.Password === name) {
+      formInputsContent.push(
+        <div className="input-wrapper">
+          <InputPassword
+            placeHolder={data.placeHolder}
+            value={data.value}
+            errorString={data.errorString}
+            handleChange={(value: string) => handleUpdate(name, value)}
+            style={{width: "25rem"}}
+          />
+        </div>
+      )
+    } else {
+      formInputsContent.push(
+        <div className="input-wrapper">
+          <InputText
+            placeHolder={data.placeHolder}
+            value={data.value}
+            errorString={data.errorString}
+            handleChange={(value: string) => handleUpdate(name, value)}
+            style={{width: "25rem"}}
+          />
+        </div>
+      )
+    }
   }
 
   return (
