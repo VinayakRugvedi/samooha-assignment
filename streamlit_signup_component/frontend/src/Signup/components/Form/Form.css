@@ -1,3 +1,7 @@
+.signup-form-container {
+  position: relative;
+}
+
 .signup-form-container .terms-policy-container {
   margin: 3rem 0rem;
   margin-top: 2rem;
@@ -17,4 +21,26 @@
 
 .signup-form-container .button-container {
   text-align: center;
+}
+
+.signup-form-container .success-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--primary-text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-form-container .success-container .success-icon {
+  font-size: 5rem;
+  color: var(--success);
+  margin-bottom: 1rem;
 }

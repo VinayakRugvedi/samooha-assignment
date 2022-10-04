@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react"
+import {FaRegHandshake} from "react-icons/fa"
 
 import {
   Button,
@@ -14,6 +15,7 @@ interface PropTypes {
   handleSubmit: () => void;
   tos_link: string;
   privacy_link: string;
+  isSuccess: boolean;
 }
 
 const Form = ({
@@ -21,7 +23,8 @@ const Form = ({
   handleUpdate,
   handleSubmit,
   tos_link,
-  privacy_link
+  privacy_link,
+  isSuccess
 }: PropTypes) => {
   let isButtonDisabled = false
   const formInputsContent = []
@@ -59,7 +62,7 @@ const Form = ({
   }
 
   return (
-    <form className="signup-form-container">
+    <div className="signup-form-container">
       <div className="inputs-container">
         {formInputsContent}
       </div>
@@ -78,7 +81,13 @@ const Form = ({
           Sign up
         </Button>
       </div>
-    </form>
+
+      <div className={`success-container visibility-${isSuccess ? "visiblle" : "hidden"}`}>
+        <p className="success-text">You have been successfully signed up!</p>
+        <div className="success-icon"><FaRegHandshake /></div>
+        <p>You can now login as both provider and consumer.</p>
+      </div>
+    </div>
   )
 }
 

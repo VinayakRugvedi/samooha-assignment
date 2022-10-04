@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 
+import {triggerToast} from "utils"
+import {ToastTypes} from "types"
 import Form from "./Form"
 
 interface PropTypes {
@@ -34,6 +36,7 @@ const FormContainer = ({
       errorString: ""
     }
   })
+  const [isSuccess, setIsSuccess] = useState(false)
 
   const handleUpdate = (name: string, value: string): void => {
     const formDataCopy = {...formData}
@@ -58,7 +61,21 @@ const FormContainer = ({
   }
 
   const handleSubmit = (): void => {
-    // handleSubmit
+    if (formData[FormNameTypes.AccountLocator].value.length > 12) {
+      triggerToast(`Unable to proceed as ${formData[FormNameTypes.AccountLocator].placeHolder} is invalid.`, ToastTypes.Warning)
+      return
+    }
+    if (formData[FormNameTypes.Username].value.length < 5) {
+      triggerToast(`Unable to proceed as ${formData[FormNameTypes.Username].placeHolder} is invalid.`, ToastTypes.Warning)
+      return
+    }
+    if (formData[FormNameTypes.Password].value.length < 8) {
+      triggerToast(`Unable to proceed as ${formData[FormNameTypes.Password].placeHolder} is invalid.`, ToastTypes.Warning)
+      return
+    }
+
+    triggerToast("All set! You have been successfully registered.")
+    setIsSuccess(true)
   }
 
   return (
@@ -68,6 +85,7 @@ const FormContainer = ({
       handleSubmit={handleSubmit}
       tos_link={tos_link}
       privacy_link={privacy_link}
+      isSuccess={isSuccess}
     />
   )
 }
