@@ -1,9 +1,10 @@
 import {
-  Streamlit,
   StreamlitComponentBase,
   withStreamlitConnection,
 } from "streamlit-component-lib"
 import React, { ReactNode } from "react"
+import {ToastContainer} from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 import "./App.css"
 import Signup from "./Signup"
@@ -24,8 +25,8 @@ class App extends StreamlitComponentBase<PropTypes> {
 
     return (
       <div className="app-container">
-        {JSON.stringify(this.props.args)}
         <Signup data={data} />
+        <ToastContainer />
       </div>
     )
   }
