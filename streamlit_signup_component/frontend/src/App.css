@@ -1,4 +1,20 @@
+:root {
+  --text-primary-color: rgb(129, 128, 128);
+  --disabled-color: #b0bac3;
+}
+
 .app-container {
   background-color: rgb(243, 243, 243);
   padding: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* utility classes */
+.visibility-visible {
+  visibility: visible;
+}
+
+.visibility-hidden {
+  visibility: hidden;
 }
