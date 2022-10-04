@@ -1,5 +1,6 @@
 import React from "react"
 
+import Form from "./components/Form"
 import Logo from "./assets/logo.png"
 import "./Signup.css"
 
@@ -29,8 +30,18 @@ const Signup = ({data}: PropTypes) => {
         <h3 className="title-text">{title_text}</h3>
       </header>
 
-      <main>Hello</main>
+      <main>
+        <div className="form-container">
+          <Form
+            tos_link={tos_link}
+            privacy_link={privacy_link}
+          />
+        </div>
+      </main>
 
+      <div className="note-container">
+        <p className="note-text">Note: You can later login to Samooha as a <br/> <strong>provider</strong> or <strong>consumer</strong></p>
+      </div>
       
     </div>
   )
