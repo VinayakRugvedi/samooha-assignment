@@ -5,7 +5,7 @@ import "./Button.css"
 interface PropTypes {
   type?: string;
   children: ReactNode;
-  handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleClick: () => void;
   isDisabled?: boolean;
 }
 
@@ -16,11 +16,16 @@ const Button = ({
     isDisabled = false,
     ...rest
 }: PropTypes) => {
+  const onClickHanlder = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    handleClick()
+  }
+
   return (
     <div className="custom-button-container">
       <button
         className={`custom-button custom-button-${type}`}
-        onClick={handleClick}
+        onClick={onClickHanlder}
         disabled={isDisabled}
         {...rest}
       >
