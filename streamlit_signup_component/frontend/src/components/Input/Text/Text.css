@@ -12,7 +12,7 @@
   text-align: left;
 }
 
-.custom-text-input-container input[type="text"] {
+.custom-text-input-container .input {
   border: 1px solid rgba(207, 222, 253, 0.3);
   background-color: rgba(207, 222, 253, 0.3);
   padding: 1rem 0.8rem;
@@ -24,25 +24,25 @@
   width: stretch;
 }
 
-.custom-text-input-container input[type="text"]::placeholder {
+.custom-text-input-container .input::placeholder {
   font-weight: 500;
   color: var(--primary-text-color);
 }
 
-.custom-text-input-container input[type="text"]:disabled {
+.custom-text-input-container .input:disabled {
   background-color: var(--disabled-color);
 }
 
-.custom-text-input-container input[type="text"]:disabled + div {
+.custom-text-input-container .input:disabled + div {
   color: var(--disabled-color);
 }
 
-.custom-text-input-container input[type="text"]:hover {
+.custom-text-input-container .input:hover {
   border-color: var(--gray);
   outline: none;
 }
 
-.custom-text-input-container input[type="text"]:focus {
+.custom-text-input-container .input:focus {
   border-color: var(--gray);
   outline: none;
 }

@@ -42,6 +42,7 @@ const Text = ({
           {isRequired && <span>*</span>}
         </div>
         <input
+          className="input"
           type="text"
           onChange={onChange}
           placeholder={placeHolder}
